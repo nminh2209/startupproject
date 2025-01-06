@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="depression-design.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Bài kiểm tra trầm cảm - PsychHealth</title>
+    <style>
+        /* CSS của bạn ở đây */
+    </style>
+</head>
+<body>
+<section class="navigation-bar">
+    <nav class="navbar">
+        <div class="brand-div">
+            <p class="brand-name"><a href="index.html">PsychHealth</a></p>
+        </div>
+        <div class="nav-options">
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="about.html">Giới Thiệu</a></li>
+                <li><a href="test.html">Bài Kiểm Tra</a></li>
+                <li><a href="FAQ.html">Câu Hỏi Thường Gặp</a></li>
+            </ul>
+        </div>
+    </nav>
+</section>
+<div class="flex-div">
+    <div class="container">
+        <h1>Bài Kiểm Tra Trầm Cảm (PHQ - 9)</h1>
+        <form id="depressionForm">
+            <label for="question1">1. Tôi thấy khó khăn để thư giãn</label>
+            <div class="radio-group">
+                <input id="q1-option1" name="question1" required type="radio" value="0">
+                <label for="q1-option1">Không</label>
+
+                <input id="q1-option2" name="question1" type="radio" value="1">
+                <label for="q1-option2">Thỉnh thoảng</label>
+
+                <input id="q1-option3" name="question1" type="radio" value="2">
+                <label for="q1-option3">Thường xuyên</label>
+
+                <input id="q1-option4" name="question1" type="radio" value="3">
+                <label for="q1-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question2">2. Bạn có cảm thấy buồn, chán nản hoặc mất hy vọng không?</label>
+            <div class="radio-group">
+                <input id="q2-option1" name="question2" required type="radio" value="0">
+                <label for="q2-option1">Không</label>
+
+                <input id="q2-option2" name="question2" type="radio" value="1">
+                <label for="q2-option2">Thỉnh thoảng</label>
+
+                <input id="q2-option3" name="question2" type="radio" value="2">
+                <label for="q2-option3">Thường xuyên</label>
+
+                <input id="q2-option4" name="question2" type="radio" value="3">
+                <label for="q2-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question3">3. Bạn có cảm thấy mệt mỏi hoặc thiếu năng lượng không?</label>
+            <div class="radio-group">
+                <input id="q3-option1" name="question3" required type="radio" value="0">
+                <label for="q3-option1">Không</label>
+
+                <input id="q3-option2" name="question3" type="radio" value="1">
+                <label for="q3-option2">Thỉnh thoảng</label>
+
+                <input id="q3-option3" name="question3" type="radio" value="2">
+                <label for="q3-option3">Thường xuyên</label>
+
+                <input id="q3-option4" name="question3" type="radio" value="3">
+                <label for="q3-option4">Luôn luôn</label>
+            </div>
+            <label for="question4">4. Bạn có ít hứng thú hoặc niềm vui trong việc làm những điều thường ngày không?</label>
+            <div class="radio-group">
+                <input id="q1-option1" name="question4" required type="radio" value="0">
+                <label for="q1-option1">Không</label>
+
+                <input id="q1-option2" name="question4" type="radio" value="1">
+                <label for="q1-option2">Thỉnh thoảng</label>
+
+                <input id="q1-option3" name="question4" type="radio" value="2">
+                <label for="q1-option3">Thường xuyên</label>
+
+                <input id="q1-option4" name="question4" type="radio" value="3">
+                <label for="q1-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question5">5. Bạn có cảm thấy buồn, chán nản hoặc mất hy vọng không?</label>
+            <div class="radio-group">
+                <input id="q2-option1" name="question5" required type="radio" value="0">
+                <label for="q2-option1">Không</label>
+
+                <input id="q2-option2" name="question5" type="radio" value="1">
+                <label for="q2-option2">Thỉnh thoảng</label>
+
+                <input id="q2-option3" name="question5" type="radio" value="2">
+                <label for="q2-option3">Thường xuyên</label>
+
+                <input id="q2-option4" name="question5" type="radio" value="3">
+                <label for="q2-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question3">6. Bạn có cảm thấy mệt mỏi hoặc thiếu năng lượng không?</label>
+            <div class="radio-group">
+                <input id="q3-option1" name="question3" required type="radio" value="0">
+                <label for="q3-option1">Không</label>
+
+                <input id="q3-option2" name="question3" type="radio" value="1">
+                <label for="q3-option2">Thỉnh thoảng</label>
+
+                <input id="q3-option3" name="question6" type="radio" value="2">
+                <label for="q3-option3">Thường xuyên</label>
+
+                <input id="q3-option4" name="question6" type="radio" value="3">
+                <label for="q3-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question7">7. Bạn có ít hứng thú hoặc niềm vui trong việc làm những điều thường ngày không?</label>
+            <div class="radio-group">
+                <input id="q1-option1" name="question7" required type="radio" value="0">
+                <label for="q1-option1">Không</label>
+
+                <input id="q1-option2" name="question7" type="radio" value="1">
+                <label for="q1-option2">Thỉnh thoảng</label>
+
+                <input id="q1-option3" name="question7" type="radio" value="2">
+                <label for="q1-option3">Thường xuyên</label>
+
+                <input id="q1-option4" name="question7" type="radio" value="3">
+                <label for="q1-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question8">8. Bạn có cảm thấy buồn, chán nản hoặc mất hy vọng không?</label>
+            <div class="radio-group">
+                <input id="q2-option1" name="question8" required type="radio" value="0">
+                <label for="q2-option1">Không</label>
+
+                <input id="q2-option2" name="question8" type="radio" value="1">
+                <label for="q2-option2">Thỉnh thoảng</label>
+
+                <input id="q2-option3" name="question8" type="radio" value="2">
+                <label for="q2-option3">Thường xuyên</label>
+
+                <input id="q2-option4" name="question8" type="radio" value="3">
+                <label for="q2-option4">Luôn luôn</label>
+            </div>
+
+            <label for="question9">9. Bạn có cảm thấy mệt mỏi hoặc thiếu năng lượng không?</label>
+            <div class="radio-group">
+                <input id="q3-option1" name="question9" required type="radio" value="0">
+                <label for="q3-option1">Không</label>
+
+                <input id="q3-option2" name="question9" type="radio" value="1">
+                <label for="q3-option2">Thỉnh thoảng</label>
+
+                <input id="q3-option3" name="question9" type="radio" value="2">
+                <label for="q3-option3">Thường xuyên</label>
+
+                <input id="q3-option4" name="question9" type="radio" value="3">
+                <label for="q3-option4">Luôn luôn</label>
+            </div>
+
+
+
+            <button onclick="calculateDepression()" type="button">Nộp Bài</button>
+        </form>
+
+        <!-- Hiển thị kết quả -->
+        <div id="resultContainer"></div>
+    </div>
+</div>
+
+<script>
+    function calculateDepression() {
+        const questions = ["question1", "question2", "question3"]; // Thêm các câu hỏi khác nếu cần
+
+        let totalScore = 0;
+
+        questions.forEach(question => {
+            const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+            if (selectedOption) {
+                totalScore += parseInt(selectedOption.value, 10);
+            }
+        });
+
+        let depressionLevel = "";
+
+        if (totalScore >= 0 && totalScore <= 3) {
+            depressionLevel = "Không có triệu chứng trầm cảm";
+        } else if (totalScore >= 4 && totalScore <= 9) {
+            depressionLevel = "Trầm cảm nhẹ";
+        } else if (totalScore >= 10 && totalScore <= 13) {
+            depressionLevel = "Trầm cảm trung bình";
+        } else if (totalScore >= 14 && totalScore <= 18) {
+            depressionLevel = "Trầm cảm nặng vừa";
+        } else {
+            depressionLevel = "Trầm cảm nghiêm trọng";
+        }
+
+        // Hiển thị kết quả với SweetAlert
+        Swal.fire({
+            title: 'Kết Quả Bài Kiểm Tra Trầm Cảm',
+            html: `<p>Mức độ trầm cảm: <strong>${depressionLevel}</strong></p>`,
+            icon: 'info'
+        });
+    }
+</script>
+</body>
+</html>
