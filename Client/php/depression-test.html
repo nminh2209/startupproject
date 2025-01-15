@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="/css/depression-design.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/Client/css/depression-design.css" media="screen" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Bài kiểm tra trầm cảm - PsychHealth</title>
     <style>
         /* CSS của bạn ở đây */
@@ -176,38 +177,99 @@
 
 <script>
     function calculateDepression() {
-        const questions = ["question1", "question2", "question3"]; // Thêm các câu hỏi khác nếu cần
+    const questions = [
+        "question1", "question2", "question3", "question4", 
+        "question5", "question6", "question7", "question8", "question9"
+    ];
+    
+    let totalScore = 0;
+    let scores = [];
+    let labels = [
+        "Hứng thú hoạt động",
+        "Tâm trạng buồn chán",
+        "Vấn đề giấc ngủ",
+        "Mệt mỏi",
+        "Thói quen ăn uống",
+        "Tự đánh giá bản thân",
+        "Khả năng tập trung",
+        "Vận động",
+        "Ý nghĩ tiêu cực"
+    ];
 
-        let totalScore = 0;
-
-        questions.forEach(question => {
-            const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
-            if (selectedOption) {
-                totalScore += parseInt(selectedOption.value, 10);
-            }
-        });
-
-        let depressionLevel = "";
-
-        if (totalScore >= 0 && totalScore <= 3) {
-            depressionLevel = "Không có triệu chứng trầm cảm";
-        } else if (totalScore >= 4 && totalScore <= 9) {
-            depressionLevel = "Trầm cảm nhẹ";
-        } else if (totalScore >= 10 && totalScore <= 13) {
-            depressionLevel = "Trầm cảm trung bình";
-        } else if (totalScore >= 14 && totalScore <= 18) {
-            depressionLevel = "Trầm cảm nặng vừa";
-        } else {
-            depressionLevel = "Trầm cảm nghiêm trọng";
+    // Collect scores
+    questions.forEach((question, index) => {
+        const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+        if (selectedOption) {
+            const score = parseInt(selectedOption.value, 10);
+            totalScore += score;
+            scores.push(score);
         }
+    });
 
-        // Hiển thị kết quả với SweetAlert
-        Swal.fire({
-            title: 'Kết Quả Bài Kiểm Tra Trầm Cảm',
-            html: `<p>Mức độ trầm cảm: <strong>${depressionLevel}</strong></p>`,
-            icon: 'info'
-        });
+    // Create canvas for chart
+    const chartHtml = '<canvas id="depressionChart" width="400" height="200"></canvas>';
+
+    // Determine depression level
+    let depressionLevel = "";
+    if (totalScore >= 0 && totalScore <= 3) {
+        depressionLevel = "Không có triệu chứng trầm cảm";
+    } else if (totalScore >= 4 && totalScore <= 9) {
+        depressionLevel = "Trầm cảm nhẹ";
+    } else if (totalScore >= 10 && totalScore <= 13) {
+        depressionLevel = "Trầm cảm trung bình";
+    } else if (totalScore >= 14 && totalScore <= 18) {
+        depressionLevel = "Trầm cảm nặng vừa";
+    } else {
+        depressionLevel = "Trầm cảm nghiêm trọng";
     }
+
+    // Display results with chart
+    Swal.fire({
+        title: 'Kết Quả Bài Kiểm Tra Trầm Cảm',
+        html: `
+            <div style="margin-bottom: 20px;">
+                <h3>Tổng điểm: ${totalScore}</h3>
+                <h3>Mức độ: ${depressionLevel}</h3>
+            </div>
+            ${chartHtml}
+        `,
+        width: 800,
+        confirmButtonText: 'Đóng',
+        didRender: () => {
+            const ctx = document.getElementById('depressionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Điểm số từng câu hỏi',
+                        data: scores,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 3,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        }
+    });
+}
 </script>
 </body>
 </html>
