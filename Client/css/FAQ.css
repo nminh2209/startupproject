@@ -137,7 +137,6 @@ span {
 .accordion-icon {
     font-size: 25px;
     margin-right: 15px;
-
 }
 
 .accordion-item.active .accordion-icon {
@@ -148,7 +147,7 @@ span {
 .accordion-item .accordion-icon {
     transform: rotate(0deg);
     transition: transform 0.3s ease;
-/ * Adjust the duration and timing function as needed * /
+    /* Adjust the duration and timing function as needed */
 }
 
 .accordion-content {
@@ -160,7 +159,7 @@ span {
 
 .accordion-text-content {
     padding: 15px;
-    border-left: solid #8a8181;;
+    border-left: solid #8a8181;
 }
 
 .accordion-item.active .accordion-content {
